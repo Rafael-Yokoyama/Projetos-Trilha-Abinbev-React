@@ -66,31 +66,8 @@
 
           </div>
           <div class="col-6">
-            <ul>
-              <li class="profile-stats-item-active">
-                <a>
-                  <span class="profile-stats-item profile-stats-item-label">Tweets</span>
-                  <span class="profile-stats-item profile-stats-item-number">51</span>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <span class="profile-stats-item profile-stats-item-label">Following</span>
-                  <span class="profile-stats-item profile-stats-item-number">420</span>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <span class="profile-stats-item profile-stats-item-label">Followers</span>
-                  <span class="profile-stats-item profile-stats-item-number">583</span>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <span class="profile-stats-item profile-stats-item-label">Likes</span>
-                  <span class="profile-stats-item profile-stats-item-number">241</span>
-                </a>
-              </li>
+            <ul id="statistic">
+              
             </ul>
           </div>
           <div class="col">
@@ -103,27 +80,25 @@
       <div class="row">
         <div class="col profile-col">
           <!-- Left column -->
-          <div class="profile-header">
+          <div class="profile-header" id="user">
             <!-- Header information -->
-            <h3 class="profile-fullname"><a>Jon Vadillo<a></h3>
-            <h2 class="profile-element"><a>@jonvadillo</a></h2>
-            <a class="profile-element profile-website" hrerf=""><i
-                class="octicon octicon-link"></i>&nbsp;jonvadillo.com</a>
-            <a class="profile-element profile-website" hrerf=""><i
-                class="octicon octicon-location"></i>&nbsp;Vitoria-Gasteiz, Spain</a>
-            <h2 class="profile-element"><i class="octicon octicon-calendar"></i>Joined November 2012</h2>
-            <button class="btn btn-search-bar tweet-to-btn">Tweet to Jon Vadillo</button>
+           <!-- 
+             
+            -->
           </div>
         </div>
         <!-- End; Left column -->
         <!-- Center content column -->
         <div class="col-6">
-          <ol class="tweet-list">
-            <li class="tweet-card">
+          
+
+            <ol class="tweet-list"  id="tweet">
+               <!--
+            <li class="tweet-card" >
               <div class="tweet-content">
-                <div class="tweet-header">
+                <div class="tweet-header" id="usuario">
                   <span class="fullname">
-                    <strong>Jon Vadillo</strong>
+                    <strong >Jon Vadillo</strong>
                   </span>
                   <span class="username">@JonVadillo</span>
                   <span class="tweet-time">- Jul 18</span>
@@ -154,19 +129,25 @@
                 </div>
               </div>
             </li>
+              -->
           </ol>
+      
+          
           <!-- End: tweet list -->
         </div>
         <!-- End: Center content column -->
+        
         <div class="col right-col">
           <div class="content-panel">
             <div class="panel-header">
               <h4>Sugestão para seguir</h4>
             </div>
             <!-- Who to Follow panel -->
-            <div class="panel-content">
+            <div class="panel-content" >
               <!--Follow list -->
-              <ol class="tweet-list">
+              
+              <ol class="tweet-list" id="follower" >
+               <!--- 
                 <li class="tweet-card">
                   <div class="tweet-content">
                     <img class="tweet-card-avatar" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
@@ -180,18 +161,27 @@
                     <button class="btn btn-follow">Follow</button>
                   </div>
                 </li>
+                -->
+
               </ol>
               <!--END: Follow list -->
             </div>
           </div>
         </div>
       </div>
+
     </div>
     <script src='https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
-
+   
+   
+    <script src='seguir.js'></script>
+    <script src='tweets.js'></script>
+    <script src='CardUser.js'></script>
+    <script src='app.js'></script>
 
 </body>
 
 </html>
+
