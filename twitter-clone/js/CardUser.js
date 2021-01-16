@@ -2,7 +2,7 @@ class User {
     // cria método para buscar noticias no json
     buscauser() {
       // retorna o fetch com a promisse e APENAS A PROMISSE SEM TRATAMENTO
-      return fetch("./usuario.json")
+      return fetch("./json/usuario.json")
     }
   }
 
@@ -48,7 +48,7 @@ class User {
   class Statistics {
    
     GetStatistics() {
-        return fetch("./usuario.json")
+        return fetch("./json/usuario.json")
     }
 }
 
