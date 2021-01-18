@@ -1,5 +1,5 @@
 
- # Desafio do clone do tweeter
+ # Desafio do clone do Twitter
 
 
 # Sobre o Projeto 
