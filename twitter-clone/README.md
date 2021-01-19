@@ -8,7 +8,7 @@ Consumo de api utilizando os métodos fetch, arrow function e function, template
 
 
 ## Antevisão 💻
-![](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/twitter-clone/img/img.PNG)
+![](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/twitter-clone/img/PrintTela.PNG)
 
 
 
