@@ -27,18 +27,18 @@ class Texto {
                     <strong >${tweets.nome}</strong>
                   </span>
                   <span class="username">${tweets.usuario}</span>
-                  <span class="tweet-time">- Jul 18</span>
+                  <span class="tweet-time">- ${tweets.data}</span>
                 </div>
                 <a>
-                  <img class="tweet-card-avatar" src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
+                  <img class="tweet-card-avatar" src="${tweets.foto}" alt="">
                 </a>
                 <div class="tweet-text">
                   <p class="" lang="es" data-aria-label-part="0">${tweets.mensagem}
-                      class="twitter-timeline-link" target="_blank"><span
-                        class="">https://www.mozilla-hispano.org/</span></a> <a href=""
-                      class="twitter-hashtag"><s>#</s><b>firefox</b></a> <a href=""
-                      class="twitter-hashtag"><s>#</s><b>comunidad</b></a>
-                    <a href="" class="twitter-hashtag" dir="ltr"></a>
+                     
+            
+                    <a href=""
+                     <s></s><b>${tweets.hashtag}</b></a>
+                   
                   </p>
                 </div>
                 <div class="tweet-footer">

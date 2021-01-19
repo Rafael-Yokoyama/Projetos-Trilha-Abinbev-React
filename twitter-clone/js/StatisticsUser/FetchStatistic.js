@@ -3,6 +3,7 @@ class UStatistics {
         this.statistic = document.querySelector("#statistic")
     }
     ShowStatistics(dados) {
+        console.log(dados)
         let RStatistcs = ''
        
     
@@ -35,8 +36,6 @@ class UStatistics {
         this.statistic.innerHTML = RStatistcs
                 
 }
-
-
 
 
 }

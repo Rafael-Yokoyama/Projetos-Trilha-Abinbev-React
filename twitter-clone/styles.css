@@ -73,8 +73,12 @@ a {
 /* END: Top Navbar elements' styles */
 
 .profile-background {
-  height: 320px;
-  background-image: url('https://picsum.photos/1500/500');
+
+  height: 200px;
+  background: url('img/CampinasTech.jpg') repeat-x   ;
+  background-size:460px 100% ;
+ 
+  
 }
 
 /* Main avatar */
@@ -88,7 +92,7 @@ a {
 
 .avatar {
   background: #fff;
-  background-image: url(https://randomuser.me/api/portraits/men/22.jpg);
+  background-image: url(./img/foto.jpg);
   background-size: cover;
   border: 5px solid #fff;
   border-radius: 50%;

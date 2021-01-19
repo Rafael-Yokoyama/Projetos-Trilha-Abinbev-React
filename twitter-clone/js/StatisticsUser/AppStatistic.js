@@ -1,10 +1,5 @@
 
 
-// follow
-
-
-  //TWEETS
-
 
 // estatisticas 
 

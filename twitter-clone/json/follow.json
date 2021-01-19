@@ -1,16 +1,24 @@
 {
   "followers": [
     {
-      "nome": "Bruno Silva",
-      "usuario": "@bsilva"
+      "nome": "Campinas Tech Talents",
+      "usuario": "@campinas_tech_talents",
+      "foto": "./img/CampinasTech.jpg"
+
+     
+     
     },
     {
-      "nome": "Cristiano Lopes",
-      "usuario": "@lopes"
+      "nome": "Share RH",
+      "usuario": "@share_rh",
+      "foto": "./img/share.png"
     },
     {
-      "nome": "Maria Gomes",
-      "usuario": "@gomes"
+      "nome": "Anheuser-Busch InBev",
+      "usuario": "@abinbev",
+      "foto": "./img/ABInBev.png"
+
     }
+    
   ]
 }
