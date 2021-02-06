@@ -25,7 +25,7 @@ useEffect(() => {
           show &&
          
             beer?.map((item: Beers)=> (
-                <div className="beer">
+                <div key={item.id} className="beer">
                 <img src={item.image_url} alt="Buzz" />
                 <h3> {item.name}</h3>
                 <span>{item.tagline}</span>

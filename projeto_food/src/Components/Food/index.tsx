@@ -29,7 +29,7 @@ const Foods = () => {
 
   return (
     <div className="food-beer-list food-shop">
-      <h1>Tipos de pratos</h1>
+      <h1>Tipos de pratos: </h1>
       <p>
         Selecione uma categoria ou digite a comida (em inglês):
         <input type="text" placeholder="Digite a comida..." onChange={(e) => setCategories(e?.target.value)}/>
@@ -37,14 +37,14 @@ const Foods = () => {
 
       <ul>
         {food?.map((item: Food) => (
-          <li  onClick={() => setCategories(item.strCategory)} >
+          <li key={item.idCategory} onClick={() => setCategories(item.strCategory)} >
             {item.strCategory}
           </li>
         ))}
       </ul>
 
       <h2>
-        Tipo selecionado: <strong>Batata (mudar isso hein)</strong>
+        Tipo selecionado: <strong> {food}</strong>
       </h2>
 
       <div className="food-container">
