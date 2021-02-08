@@ -1,3 +1,3 @@
 import { action } from 'typesafe-actions'
-import {  Stories,StoriesTypes } from './types'
-export const getStories = (payload: Stories) => action(StoriesTypes.GET_STORIES, payload)
+import {  StoriesTypes, AllStories } from './types'
+export const getStories = (payload: AllStories) => action(StoriesTypes.GET_STORIES, payload)

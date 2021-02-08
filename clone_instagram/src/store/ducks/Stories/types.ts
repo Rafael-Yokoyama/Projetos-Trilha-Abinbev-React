@@ -1,7 +1,6 @@
 export enum StoriesTypes {
    GET_STORIES = 'GET_STORIE'
 }
-
 export interface AllStories {
   user: string;
   userPicture: string;
@@ -14,7 +13,7 @@ export interface Stories {
   }
   
   export interface TodosState {
-    todos: Stories
+    stories: Stories
   }
 
 

@@ -1,6 +1,11 @@
-import React from 'react';
+
+import React, { useEffect, useRef, useState } from 'react';
+
+import axios from 'axios'
 
 const Form  = () => {
+
+  
   return (
       <div className="form">
         <p>Faça uma postagem aqui</p>

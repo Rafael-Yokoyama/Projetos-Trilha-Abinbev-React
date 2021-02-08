@@ -7,7 +7,7 @@ const Stories2  = () => {
 
 const dispatch = useDispatch()
 
-const todos = useSelector((state:TodosState) =>(state.todos.arrayStories))
+const stories = useSelector((state:TodosState) =>(state.stories.arrayStories))
 
   useEffect(() => {
     axios.get("http://localhost:4000/stories")
@@ -15,9 +15,10 @@ const todos = useSelector((state:TodosState) =>(state.todos.arrayStories))
   },[]) 
 
     return(
+      
       <div className="stories">
         <h2>Stories</h2>
-        {todos !== null && todos.map((i:AllStories)=>(
+         { stories?.map((i:AllStories)=>(
            <div   className="storie">
            <div className="storie-image">
              <img src={i.userPicture} alt="user" />
@@ -27,9 +28,9 @@ const todos = useSelector((state:TodosState) =>(state.todos.arrayStories))
              <span>{i.time}</span>
            </div>
          </div>
-        ))}  
+        ))}   
       
-       </div> 
+       </div>  
      
     )
 }
