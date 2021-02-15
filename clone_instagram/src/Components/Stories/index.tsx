@@ -19,8 +19,8 @@ const stories = useSelector((state:TodosState) =>(state.stories.arrayStories))
       <div className="stories">
         <h2>Stories</h2>
          { stories?.map((i:AllStories)=>(
-           <div   className="storie">
-           <div className="storie-image">
+           <div   className="storie" key= {i.id}>
+           <div className="storie-image" >
              <img src={i.userPicture} alt="user" />
            </div>
            <div className="storie-user">

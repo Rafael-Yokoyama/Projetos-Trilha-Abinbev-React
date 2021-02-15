@@ -4,10 +4,12 @@ import { combineReducers } from 'redux'
 
 import reducerUser from './ducks/User'
 import reducerStories from './ducks/Stories'
+import reducerPosts from './ducks/Posts'
 
 const createRootReducer = () => combineReducers({
   user: reducerUser,
   stories: reducerStories,
+   posts: reducerPosts
   
 })
 
