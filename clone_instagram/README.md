@@ -44,4 +44,4 @@ Projeto desenvolvido na Trilha-Abinbev-React  do Campinas Tech Talents, simuland
  
 Este projeto está sob a licença MIT.CLique <a  href="https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/LICENSE"> aqui </a> para saber mais 
 
-Esses projeto foram desenvolvidos com 🖤por  <a href="https://github.com/Rafael-Yokoyama"> @RafaelYokoyama </a> 
+Esse projeto foi desenvolvido com 🖤por  <a href="https://github.com/Rafael-Yokoyama"> @RafaelYokoyama </a> 
