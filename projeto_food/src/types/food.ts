@@ -1,13 +1,13 @@
-export interface Food {
+export interface CategoriesType {
     idCategory: string
-    strCategory:string
-    strCategoryThumb:string
-    strCategoryDescription:string
-}
-
-export interface SelecioneCategory{
-    idMeal: string
-    strMeal: string
-    strMealThumb:string 
+    strCategory: string
+    strCategoryThumb: string
+    strCategoryDescription: string
    
+}
+export interface Meals {
+    idMeal: string
+    strMealThumb: string
+    strMeal: string
+  
 }

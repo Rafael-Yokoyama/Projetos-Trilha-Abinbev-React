@@ -1,57 +1,68 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Food, SelecioneCategory } from "../../types/food";
+import axios from "axios";
+import { CategoriesType, Meals } from "../../types/food";
 
 const Foods = () => {
-  const [food, setFood] = useState<Food[]>();
-  const [categories, setCategories] = useState<string>();
-  const [meals, setMeals] = useState<SelecioneCategory[]>();
-  
+  const [category, setCategory] = useState<CategoriesType[]>();
+  const [categoryName, setCategoryName] = useState<string>();
+  const [meals, setMeals] = useState<Meals[]>();
+
   useEffect(() => {
     axios
-      .get(`https://www.themealdb.com/api/json/v1/1/categories.php`)
-      .then((response) => setFood(response.data.categories));
+      .get("https://www.themealdb.com/api/json/v1/1/categories.php")
+      .then((response) => setCategory(response.data.categories));
   }, []);
 
   useEffect(() => {
-    axios
-      .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categories}`)
-      .then((response) => setMeals(response.data.meals));
-  }, [categories]);
-  useEffect(() => {
-    if (categories !== undefined){
-    axios
-      .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${categories}`)
-      .then((response) => setMeals(response.data.meals));
-  }
-  }, [categories]);
+    if (categoryName !== undefined) {
+      axios
+        .get(
+          `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`
+        )
+        .then((response) => setMeals(response.data.meals));
+    }
+  }, [categoryName]);
 
+  useEffect(() => {
+    if (categoryName !== undefined) {
+      axios
+        .get(
+          `https://www.themealdb.com/api/json/v1/1/search.php?s=${categoryName}`
+        )
+        .then((response) => setMeals(response.data.meals));
+    }
+  }, [categoryName]);
 
   return (
     <div className="food-beer-list food-shop">
-      <h1>Tipos de pratos: </h1>
+      <h1>Type of dishes</h1>
       <p>
-        Selecione uma categoria ou digite a comida (em inglês):
-        <input type="text" placeholder="Digite a comida..." onChange={(e) => setCategories(e?.target.value)}/>
+        Select a category or type meal/ingredient name:
+        <input
+          type="text"
+          placeholder="Type meal/ingredient name..."
+          onChange={(event) => setCategoryName(event?.target.value)}
+        />
       </p>
 
       <ul>
-        {food?.map((item: Food) => (
-          <li key={item.idCategory} onClick={() => setCategories(item.strCategory)} >
-            {item.strCategory}
-          </li>
+        {category?.map((i: CategoriesType) => (
+          <div key={i.idCategory} className="catalog">
+            <li onClick={() => setCategoryName(i.strCategory)}>
+              {i.strCategory}
+            </li>
+          </div>
         ))}
       </ul>
 
       <h2>
-        Tipo selecionado: <strong> {food}</strong>
+        Selected category: <strong>{categoryName}</strong>
       </h2>
-
       <div className="food-container">
-        {meals?.map((item: SelecioneCategory) => (
-          <div className="food-item" key={item.idMeal}>
-            <img src={item.strMealThumb}  alt={item.strMeal} />
-            <p>{item.strMeal}</p>
+        {meals?.map((i: Meals) => (
+          <div className="food-item" key={i.idMeal}>
+            <img src={i.strMealThumb} alt={i.strMeal} />
+            <p>{i.strMeal}</p>
           </div>
         ))}
       </div>
