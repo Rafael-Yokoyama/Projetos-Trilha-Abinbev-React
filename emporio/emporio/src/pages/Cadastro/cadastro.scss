@@ -1,0 +1,30 @@
+.formulario{
+    margin-top:60px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-direction: column;
+    h1{
+        font-size:30px;
+        text-transform:uppercase;
+        padding-bottom: 20px;
+   
+    }
+    .inputs{
+        width:400px;
+    }
+    input{
+        width: 100%;
+        margin-top:10px;
+        height: 25px;
+    }
+    button{
+        border-radius: 10px;
+        height: 30px;
+        background-color: var(--yellow);
+        width: 100%;
+        margin-top:10px;
+
+    }
+    
+}

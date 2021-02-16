@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "react-icons": "^4.1.0"
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-router-dom": "^5.1.7",
+    "axios": "^0.21.1",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.1.0",
+    "react-router-dom": "^5.2.0"
   }
 }
