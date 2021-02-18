@@ -2,7 +2,9 @@
   --yellow: #ffa935;
   --light_gray: #f0f0f0;
   --dark-gray:#2b2e33;
+  --dark-gray_1:#3f3f40;
   --white: #ffffff;
+  --light-black: rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -53,6 +55,9 @@ header {
     display: flex;
     justify-content: start;
     align-items: center;
+    img{
+      margin-left: -50px;
+    }
   }
 }
 
