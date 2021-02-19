@@ -14,12 +14,17 @@
         width:400px;
     }
     input{
+        border-radius: 5px;
         width: 100%;
         margin-top:10px;
         height: 35px;
     }
     button{
-        border-radius: 10px;
+        cursor:pointer;
+        color:var(--black);
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 5px;
         height: 30px;
         background-color: var(--yellow);
         width: 100%;
@@ -28,3 +33,4 @@
     }
     
 }
+

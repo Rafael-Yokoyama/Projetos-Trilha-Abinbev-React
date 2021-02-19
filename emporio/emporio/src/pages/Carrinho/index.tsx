@@ -6,15 +6,12 @@ import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
 import axios from "axios";
-import "./home.scss";
-import { useDispatch } from 'react-redux'
 
-import { Redirect } from "react-router-dom";
 
-const Home = () => {
-  const dispatch = useDispatch()
+
+const Carrinho = () => {
   const [categories, setCategories] = useState([]);
-  const [beers, setBeers] = useState([]);
+
 
   const token = localStorage.getItem("token");
 
@@ -28,16 +25,7 @@ const Home = () => {
         .then((resposta) => setCategories(resposta.data));
     }
   }, []);
-  useEffect(() => {
-    if (token !== null) {
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      axios
-        .get("http://localhost:4000/beers", { headers: headers })
-        .then((resposta) => setBeers(resposta.data));
-    }
-  }, []);
+ 
 
   return (
     <>
@@ -169,27 +157,9 @@ const Home = () => {
         </div>
       </header>
 
-      <section className="Beers">
-        {beers?.map((i: any) => (
-          <ul className="container_beers" key={i.id}>
-            <li>
-              <img
-                className="img"
-                src={i.image}
-                width="auto"
-                height="160px"
-                alt={i.title}
-              />
-              <p className="description">{i.description}</p>
-              <p className="title">{i.title}</p>
-              <p className="price">{i.price}</p>
-              <button >Adicionar</button>
-            </li>
-          </ul>
-        ))}
-      </section>
+   
     </>
   );
 };
 
-export default Home;
+export default Carrinho;

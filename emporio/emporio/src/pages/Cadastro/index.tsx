@@ -29,7 +29,7 @@ const Cadastro = () => {
   .then(resposta => {
     localStorage.setItem("token", resposta.data.accessToken)
       setLogado(true)
-  })
+  });
   }else{
     alert(" IDADE TEM QUE SER 18 OU SUPERIOR")
   }  
@@ -52,7 +52,7 @@ const Cadastro = () => {
               <img src={Logo} width="330px"></img>
             </div>
           </div>
-
+       
           <div className="icons-header">
             <FaUser className="icons" />
 
@@ -61,7 +61,8 @@ const Cadastro = () => {
         </nav>
       </header>
       <section className="formulario">
-        <h1>Cadastrar Agora</h1>
+        <h1>Cadastre-se</h1>
+
         <div className="inputs">
           <div>
             <input type="text" placeholder="Nome"  ref={nameInput} />
@@ -77,7 +78,7 @@ const Cadastro = () => {
           </div>
           <button onClick={Cadastrar}>Enviar</button>
         </div>
-        {logado && <Redirect to="/Home" />}
+        {logado && <Redirect to="/home" />}
       </section>
     </div>
   );

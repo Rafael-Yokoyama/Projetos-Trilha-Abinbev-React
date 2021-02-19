@@ -1,5 +1,6 @@
 :root {
   --yellow: #ffa935;
+  --orange:#fc591f;
   --light_gray: #f0f0f0;
   --dark-gray:#2b2e33;
   --dark-gray_1:#3f3f40;
@@ -20,7 +21,7 @@ body {
 .text-top{
   display:flex;
   width: 100%;
-  background-color: #f0f0f0;
+  background-color: var(--light_gray);
     height: 35px;
     justify-content: center;
   
@@ -44,7 +45,7 @@ header {
   border-bottom: 5px solid var(--yellow);
   margin-top:30px;
   .navbar {
-    height:140px;
+    height:130px;
     margin-top: -30px;
     display: flex;
     justify-content: space-between;
