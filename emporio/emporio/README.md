@@ -1,4 +1,4 @@
-#em contrução ainda#
+#em andamento ainda#
 
 
 ![](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/emporio/emporio/src/img/gif.gif)
