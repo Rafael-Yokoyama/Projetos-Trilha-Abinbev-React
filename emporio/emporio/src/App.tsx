@@ -7,9 +7,9 @@ import { store } from './store'
 
 function App() {
   return (
-    <div className="App">
+    <div   className="App">
       <BrowserRouter>
-      <Provider store={store}>
+      <Provider  store={store}>
         <Routes />
         </Provider>
       </BrowserRouter>

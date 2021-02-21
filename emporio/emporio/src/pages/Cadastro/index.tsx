@@ -8,6 +8,7 @@ import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import "./cadastro.scss";
 
+
 const Cadastro = () => {
   const nameInput =useRef<HTMLInputElement>(null);
   const emailInput =useRef<HTMLInputElement>(null);
@@ -37,14 +38,16 @@ const Cadastro = () => {
 }
 
   return (
-    <div>
-      <div className="text-top">
-        <p>
+ 
+   <div  >
+      
+      <div className="text-cadastro">
+  <p>
          
           A Maior <span>Loja Especializada de Cervejas</span> do Brasil.
         </p>
       </div>
-      <header className="header">
+      <header className="header_cadastro">
         <nav className="navbar">
           <div className="nav-menu">
             <div>
@@ -53,14 +56,13 @@ const Cadastro = () => {
             </div>
           </div>
        
-          <div className="icons-header">
+         {/*  <div className="icons-header">
             <FaUser className="icons" />
 
             <FaShoppingCart className="icons" />
-          </div>
+          </div> */}
         </nav>
-      </header>
-      <section className="formulario">
+        <div className="formulario">
         <h1>Cadastre-se</h1>
 
         <div className="inputs">
@@ -76,10 +78,13 @@ const Cadastro = () => {
           <div>
             <input type="number" placeholder="Idade"  ref={ageInput} />
           </div>
-          <button onClick={Cadastrar}>Enviar</button>
+          <button  onClick={Cadastrar}>Cadastrar</button>
         </div>
         {logado && <Redirect to="/home" />}
-      </section>
+      </div>
+      </header>
+     
+   
     </div>
   );
 };

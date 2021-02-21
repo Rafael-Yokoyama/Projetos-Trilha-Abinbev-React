@@ -7,15 +7,19 @@ import { FaShoppingCart } from "react-icons/fa";
 
 import axios from "axios";
 import "./home.scss";
-import { useDispatch } from 'react-redux'
 
-import { Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import { BeerItemType,BeersType } from '../../store/ducks/beers/types';
+import { setCartItem } from '../../store/ducks/cartItem/actions';
+import { CarteItemState, EachCartItemType } from '../../store/ducks/cartItem/types';
+
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch()
+
   const [categories, setCategories] = useState([]);
   const [beers, setBeers] = useState([]);
-
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -39,9 +43,48 @@ const Home = () => {
     }
   }, []);
 
+  const cartItens = useSelector((state: CarteItemState) => state.cartItem.cartItens)
+
+  const addCart = (i: BeerItemType) => {
+
+    const newItemArray = cartItens
+
+    const itemFound = newItemArray.find((element: EachCartItemType) => element.id === i.id)
+    const indexOfItemFound = newItemArray.findIndex((element: EachCartItemType) => element.id === i.id)
+
+    if (itemFound) {
+      const newItem: EachCartItemType ={
+        description: itemFound.description,
+        id: itemFound.id,
+        image: itemFound.image,
+        price: itemFound.price,
+        title: itemFound.title,
+        amount: itemFound.amount+1
+      }
+      newItemArray.splice(indexOfItemFound, 1, newItem)
+      dispatch(setCartItem(newItemArray))
+
+    } else {
+      const newItem: EachCartItemType = {
+        description: i.description,
+        id: i.id,
+        image: i.image,
+        price: i.price,
+        title: i.title,
+        amount: 1
+      }
+      newItemArray.push(newItem)
+      dispatch(setCartItem(newItemArray))
+    }
+
+    
+  }
+
+
+
   return (
-    <>
-      <div className="text-top">
+    <div className="container-home">
+      <div className="texttop">
         <p>
           A Maior <span>Loja Especializada de Cervejas</span> do Brasil.
         </p>
@@ -170,7 +213,7 @@ const Home = () => {
       </header>
 
       <section className="Beers">
-        {beers?.map((i: any) => (
+        {beers?.map((i:  BeerItemType) => (
           <ul className="container_beers" key={i.id}>
             <li>
               <img
@@ -183,12 +226,14 @@ const Home = () => {
               <p className="description">{i.description}</p>
               <p className="title">{i.title}</p>
               <p className="price">{i.price}</p>
-              <button >Adicionar</button>
+              
+               <Link to="/carrinho"> <button className='button' onClick={() => addCart(i)}>Adicionar</button></Link>
+             
             </li>
           </ul>
         ))}
       </section>
-    </>
+    </div>
   );
 };
 

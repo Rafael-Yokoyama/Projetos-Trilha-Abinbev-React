@@ -2,11 +2,17 @@ import { createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { combineReducers } from 'redux'
 
-import reducerCarrinho from './ducks/carrinho'
+
+
+import reducerCategories from './ducks/categories'
+import reducerBudget from './ducks/budget'
+import reducerCartItem from './ducks/cartItem'
 
 
 const createRootReducer = () => combineReducers({
-  carrinho: reducerCarrinho
+  cartItem: reducerCartItem,
+  categories: reducerCategories,
+  budgetItem: reducerBudget,
   
 })
 
