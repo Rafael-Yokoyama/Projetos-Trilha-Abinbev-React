@@ -1,3 +1,9 @@
+#em andamento ainda#
+
+
+![](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/emporio/emporio/src/img/gif.gif)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
