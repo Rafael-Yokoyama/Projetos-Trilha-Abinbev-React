@@ -1,18 +1,18 @@
-import { BudgetEnumType, BudgetType} from './types'
+import { BudgetEnumType, BudgetType } from "./types";
 
 const initialStateBudget: BudgetType = {
-    arrayBudget: []
-}
+  arrayBudget: [],
+};
 
 function reducerBudget(state = initialStateBudget, action: any) {
-    switch(action.type) {
-        case BudgetEnumType.GET_BUDGET:
-            return {
-                arrayBudget: action.payload,
-            }
-        default:
-            return state
-    }
+  switch (action.type) {
+    case BudgetEnumType.GET_BUDGET:
+      return {
+        arrayBudget: action.payload,
+      };
+    default:
+      return state;
+  }
 }
 
-export default reducerBudget
+export default reducerBudget;

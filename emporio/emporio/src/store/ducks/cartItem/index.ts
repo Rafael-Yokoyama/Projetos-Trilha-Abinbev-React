@@ -1,25 +1,23 @@
-
-
-import  { CartItemEnumType, CartItemType } from './types'
+import { CartItemEnumType, CartItemType } from "./types";
 
 const initialStateCart: CartItemType = {
-    cartItens: []
-}
+  cartItens: [],
+};
 
 function reducerCartItem(state = initialStateCart, action: any) {
-    switch(action.type) {
-        case CartItemEnumType.SET_ITEM:
-            return {
-                ...state,
-                cartItens: action.payload,
-            }
-        case CartItemEnumType.DELETE_ITEM:
-            return {
-                cartItens: []
-            }
-        default:
-            return state
-    }
+  switch (action.type) {
+    case CartItemEnumType.SET_ITEM:
+      return {
+        ...state,
+        cartItens: action.payload,
+      };
+    case CartItemEnumType.DELETE_ITEM:
+      return {
+        cartItens: [],
+      };
+    default:
+      return state;
+  }
 }
 
-export default reducerCartItem
+export default reducerCartItem;

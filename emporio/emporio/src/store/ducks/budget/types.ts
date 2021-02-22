@@ -1,16 +1,15 @@
-
 export enum BudgetEnumType {
-    GET_BUDGET = '@GET_BUDGET'
+  GET_BUDGET = "@GET_BUDGET",
 }
 
 export interface BudgetItemType {
-    itemPrice: Number
+  itemPrice: Number;
 }
 
 export interface BudgetType {
-    arrayBudget: BudgetItemType[]
+  arrayBudget: BudgetItemType[];
 }
 
 export interface BudgetItemState {
-    budgetItem: BudgetType
+  budgetItem: BudgetType;
 }

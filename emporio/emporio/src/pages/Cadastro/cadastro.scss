@@ -1,5 +1,3 @@
-
-
 $container-xl: 1440px;
 $container-l: 1140px;
 $container-m: 960px;
@@ -35,152 +33,130 @@ $container-s: 540px;
 }
 
 body {
- 
-  height:100%;
+  height: 100%;
 
   background-image: url("http://gaslogbr.com.br/wp-content/uploads/2019/09/GLP-cervejarias.jpg");
 
-
-background-repeat: no-repeat;
-background-position: center;
-background-attachment: fixed;
-overflow-x: hidden;
-background-size: cover;
-
-
-
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  background-size: cover;
 }
 
-.text-cadastro{
-
-  display:flex;
+.text-cadastro {
+  display: flex;
   width: 100%;
-   background-color: var( --light); 
-    height: 35px;
-    justify-content: center;
-  
-    p{
-        @include responsive(xs){
-          display:none;
-        }
-        color:white;
-      display: flex;
-      text-align: center;
-      align-items: center;
-      font-weight: 700;
-      font-size: 18px;
-      margin: 0;
-     padding: 20px;
-     font-family: Open Sans Condensed,sans-serif;
- 
-     line-height: 1.5;
-     
+  background-color: var(--light);
+  height: 35px;
+  justify-content: center;
+
+  p {
+    @include responsive(xs) {
+      display: none;
     }
-    span{
-      background-color: black;
-    }
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0;
+    padding: 20px;
+    font-family: Open Sans Condensed, sans-serif;
+
+    line-height: 1.5;
+  }
+  span {
+    background-color: black;
+  }
 }
-
-
 
 header.header_cadastro {
-    @include responsive(xs){
-        width:90%;
-        overflow:hidden;
-        margin-top:5px;
-    }
-    background-color:#ffffff70;
- padding-bottom: 9px;
-padding-top:5px;
- margin:0 auto;
-align-items: center;
-width:400px;
-height:100%;
-border-radius: 30px;
-border-bottom: 5px solid var(--yellow);
-margin-top:30px; 
-.navbar {
-width:90%;
-height:130px;
-margin-top: -30px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-
-}
-.nav-menu {
-display: flex;
-justify-content: start;
-align-items: center;
-img{
-    padding-top:70px;
-    margin:0 auto;
+  @include responsive(xs) {
+    width: 90%;
+    overflow: hidden;
+    margin-top: 5px;
+  }
+  background-color: #ffffff70;
+  padding-bottom: 9px;
+  padding-top: 5px;
+  margin: 0 auto;
   align-items: center;
-     @include responsive(xs){
-       margin-left:-20px;
-     }
-  
-}
-}
-}
-
-
-
-.formulario{
-    margin-top:60px;
+  width: 400px;
+  height: 100%;
+  border-radius: 30px;
+  border-bottom: 5px solid var(--yellow);
+  margin-top: 30px;
+  .navbar {
+    width: 90%;
+    height: 130px;
+    margin-top: -30px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content:space-between;
-    flex-direction: column;
-    h1{
-        font-size:30px;
-        text-transform:uppercase; 
-   
-    }
-    .inputs{
-         @include responsive(xs){
-           width:200px;
-         }
-        width:300px;
-      
-    }
-    input{
-
-        margin:0 auto;
-        border-radius: 5px;
-        width: 100%;
-        margin-top:10px;
-        height: 35px;
-    }
-    .button{
-        cursor:pointer;
-      color:black;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-radius: 5px;
-        height: 30px;
-        background-color: var(--yellow);
-        width: 100%;
-        margin-top:10px;
-     
-
-    }
-    
-}
-
-button{
-    color:black;
-}
-
-    
-    
-    .icons-header {
-      display: flex;
-      justify-content: center;
+  }
+  .nav-menu {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    img {
+      padding-top: 70px;
+      margin: 0 auto;
       align-items: center;
-      cursor: pointer;
-      .icons {
-        margin-left: 28px;
+      @include responsive(xs) {
+        margin-left: -20px;
       }
-      
     }
+  }
+}
+
+.formulario {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  .inputs {
+    @include responsive(xs) {
+      width: 200px;
+    }
+    width: 300px;
+  }
+  input {
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+    height: 35px;
+  }
+  .button {
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    height: 30px;
+    background-color: var(--yellow);
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+button {
+  color: black;
+}
+
+.icons-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  .icons {
+    margin-left: 28px;
+  }
+}

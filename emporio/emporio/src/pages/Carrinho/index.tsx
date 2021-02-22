@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 
 import Logo from "../../img/LOGO.png";
 import axios from "axios";
-import { FaUser,FaShoppingCart,FaTrashAlt} from "react-icons/fa";
+import { FaUser, FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import {  deleteCartItem, setCartItem} from "../../store/ducks/cartItem/actions";
-import {  CarteItemState,  EachCartItemType} from "../../store/ducks/cartItem/types";
+import {
+  deleteCartItem,
+  setCartItem,
+} from "../../store/ducks/cartItem/actions";
+import {
+  CarteItemState,
+  EachCartItemType,
+} from "../../store/ducks/cartItem/types";
 import "./carrinho.scss";
 import { Link } from "react-router-dom";
-
 
 const Carrinho = () => {
   const [categories, setCategories] = useState([]);
@@ -25,7 +30,6 @@ const Carrinho = () => {
         .then((resposta) => setCategories(resposta.data));
     }
   }, []);
-
 
   const notification = useSelector(
     (state: CarteItemState) => state.cartItem.cartItens
@@ -198,7 +202,6 @@ const Carrinho = () => {
           <div className="icons-header">
             <FaUser className="icons" />
             <FaShoppingCart className="icons" />{" "}
-       
             <span className="cart-count"> {notificationSum} </span>
           </div>
         </nav>
@@ -229,56 +232,47 @@ const Carrinho = () => {
         {cartItens.length === 0 ? (
           <h1 className="h1">Seu carrinho está vazio :(</h1>
         ) : (
-          <h1>Carrinho</h1>
+          <h1></h1>
         )}
 
-<section className="Beers">
-        {cartItens.map((i: EachCartItemType) => (
-          <ul className="  beers-container" key={i.id}>
-            <li className="li">
-              <img
-                className="img"
-                src={i.image}
-                width="auto"
-                height="160px"
-                alt={i.title}
-              />
-              <p className="description">{i.description}</p>
-              <p className="title">{i.title}</p>
-              <p className="price"> Preço : {i.price}</p>
-             
-           
-            
-              <p className="total">
-              Total do item: R$ {calculator(i).toFixed(2)}
-            </p>
-           
-              <div className="add">
-              <button onClick={() => addMount(i)}>+</button>
-               <button className="contagem"> <p>{i.amount}</p></button>
-              <button onClick={() => decreaseMount(i)}>-</button>
+        <section className="Beers-container">
+          {cartItens.map((i: EachCartItemType) => (
+            <ul className=" container_beers" key={i.id}>
+              <li className="li">
+                <FaTrashAlt className="lixo" onClick={() => deleteItem(i)} />
 
-              <FaTrashAlt className="lixo" onClick={() => deleteItem(i)} />
-           
-            </div>
-            <button className="finish" onClick={() => finish()}>Comprar </button>
-            <Link to="/home"> <button>Voltar as compras</button></Link>
+                <p className="price"> R$ {i.price}</p>
+                <img
+                  className="img"
+                  src={i.image}
+                  width="auto"
+                  height="160px"
+                  alt={i.title}
+                />
 
-      
-         
-           
-            </li>
-          </ul>
-          
-        ))}
-        
-      </section>
+                <p className="title">{i.title}</p>
+                <p className="total">R$ {calculator(i).toFixed(2)}</p>
 
+                <div className="add">
+                  <button onClick={() => addMount(i)}>+</button>
+                  <button className="contagem">
+                    {" "}
+                    <p>{i.amount}</p>
+                  </button>
+                  <button onClick={() => decreaseMount(i)}>-</button>
+                </div>
+                <button className="finish" onClick={() => finish()}>
+                  Comprar{" "}
+                </button>
 
-
-
-
-      
+                <Link to="/home">
+                  {" "}
+                  <button>Voltar as compras</button>
+                </Link>
+              </li>
+            </ul>
+          ))}
+        </section>
       </div>
     </>
   );

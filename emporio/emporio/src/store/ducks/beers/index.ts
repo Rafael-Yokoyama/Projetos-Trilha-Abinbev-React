@@ -1,20 +1,18 @@
-
-import { BeerEnumType, BeersType } from './types'
-
+import { BeerEnumType, BeersType } from "./types";
 
 const initialStateBeers: BeersType = {
-    arrayBeers: []
-}
+  arrayBeers: [],
+};
 
 function reducerBeers(state = initialStateBeers, action: any) {
-    switch(action.type) {
-        case BeerEnumType.GET_BEERS:
-            return {
-                arrayBeers: action.payload,
-            }
-        default:
-            return state
-    }
+  switch (action.type) {
+    case BeerEnumType.GET_BEERS:
+      return {
+        arrayBeers: action.payload,
+      };
+    default:
+      return state;
+  }
 }
 
-export default reducerBeers
+export default reducerBeers;
