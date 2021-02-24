@@ -27,6 +27,6 @@
 
 ## Licença 📝 
  
- Este projeto está sob a licença MIT.CLique <a  href="https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/LICENSE"> aqui </a> para saber mais 
+ Esses projetos estão sob a licença MIT.CLique <a  href="https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/LICENSE"> aqui </a> para saber mais 
 
-Esses projeto foram desenvolvidos com 🖤por  <a href="https://github.com/Rafael-Yokoyama"> @RafaelYokoyama </a> 
+Esses projetos foram desenvolvidos com 🖤 por  <a href="https://github.com/Rafael-Yokoyama"> @RafaelYokoyama </a> 
