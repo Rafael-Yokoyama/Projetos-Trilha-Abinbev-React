@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import Logo from "../../img/LOGO.png";
-
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { IoBeer } from "react-icons/io5";
 
@@ -17,6 +16,7 @@ import {
 } from "../../store/ducks/cartItem/types";
 
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -25,16 +25,45 @@ const Home = () => {
   const [beers, setBeers] = useState([]);
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    if (token !== null) {
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      axios
-        .get("http://localhost:4000/categories", { headers: headers })
-        .then((resposta) => setCategories(resposta.data));
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  const getHeader = async () => {
+    try {
+      const request = await axios.get("http://localhost:4000/categories", {
+        headers: headers,
+      });
+      setCategories(request.data);
+    } catch (erro) {
+      if (erro.response.status === 404) {
+        toast.error("Error 404 recarregue a página ");
+      }
     }
+  };
+
+  useEffect(() => {
+    getHeader();
   }, []);
+
+  const getBeers = async () => {
+    try {
+      const request = await axios.get("http://localhost:4000/beers", {
+        headers: headers,
+      });
+      setBeers(request.data);
+    } catch (erro) {
+      if (erro.response.status === 404) {
+        toast.error("Error 404 recarregue a página ");
+      }
+    }
+  };
+
+  useEffect(() => {
+    getBeers();
+  }, []);
+
+  /* 
+
   useEffect(() => {
     if (token !== null) {
       const headers = {
@@ -44,7 +73,7 @@ const Home = () => {
         .get("http://localhost:4000/beers", { headers: headers })
         .then((resposta) => setBeers(resposta.data));
     }
-  }, []);
+  }, []); */
 
   const cartItens = useSelector(
     (state: CarteItemState) => state.cartItem.cartItens
@@ -95,8 +124,8 @@ const Home = () => {
       <header className="header">
         <nav className="navbar">
           <div className="nav-menu">
-            <div>
-              <img src={Logo} width="280px"></img>
+            <div className="logo">
+              <img src={Logo}></img>
             </div>
           </div>
           <div className="input">
@@ -202,7 +231,7 @@ const Home = () => {
             ))}
 
           <div className="Fale">
-            <p>
+            <p className="Fale-p">
               <a href=""> Fale Conosco </a>
             </p>
           </div>
@@ -216,6 +245,7 @@ const Home = () => {
           Destaques no Empório <IoBeer size={40} color={"white"} />
         </h3>
       </div>
+      <Toaster />
       <section className="Beers">
         {beers?.map((i: BeerItemType) => (
           <ul className="container_beers" key={i.id}>

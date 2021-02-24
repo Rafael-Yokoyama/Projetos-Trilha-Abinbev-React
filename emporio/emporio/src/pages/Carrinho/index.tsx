@@ -14,22 +14,33 @@ import {
 } from "../../store/ducks/cartItem/types";
 import "./carrinho.scss";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast'
 
 const Carrinho = () => {
   const [categories, setCategories] = useState([]);
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token")
+
+  const headers = {
+    'Authorization': `Bearer ${token}`
+  }
+  const getHeader = async () => {
+    try {
+      const request = await axios.get('http://localhost:4000/categories',{ headers: headers })
+      setCategories(request.data)
+
+    } catch(erro) {
+      if(erro.response.status === 404) {
+        toast.error('Error 404 recarregue a página')
+        }
+      }
+  }
 
   useEffect(() => {
-    if (token !== null) {
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      axios
-        .get("http://localhost:4000/categories", { headers: headers })
-        .then((resposta) => setCategories(resposta.data));
-    }
-  }, []);
+    getHeader()
+  }, [])
+  
+
 
   const notification = useSelector(
     (state: CarteItemState) => state.cartItem.cartItens
@@ -99,7 +110,8 @@ const Carrinho = () => {
   };
 
   const finish = () => {
-    alert("Seu pedido foi realizado.");
+    toast.success('Seu pedido foi realizado')
+ 
     dispatch(deleteCartItem());
   };
 
@@ -221,7 +233,7 @@ const Carrinho = () => {
             ))}
 
           <div className="Fale">
-            <p>
+            <p className="Fale-p">
               <a href=""> Fale Conosco </a>
             </p>
           </div>
@@ -230,7 +242,12 @@ const Carrinho = () => {
 
       <div>
         {cartItens.length === 0 ? (
-          <h1 className="h1">Seu carrinho está vazio :(</h1>
+          
+          <Link to="/home">
+          {" "}
+          <button className="btn-finalizado">Voltar as compras</button>
+        </Link>
+       
         ) : (
           <h1></h1>
         )}
@@ -273,6 +290,7 @@ const Carrinho = () => {
             </ul>
           ))}
         </section>
+        <Toaster />
       </div>
     </>
   );

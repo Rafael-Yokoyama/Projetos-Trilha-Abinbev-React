@@ -45,7 +45,7 @@ p {
   justify-content: center;
 
   p {
-    @include responsive(xs) {
+    @include responsive(s) {
       display: none;
     }
     color: black;
@@ -53,7 +53,7 @@ p {
     text-align: center;
     align-items: center;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
     padding: 20px;
     font-family: Open Sans Condensed, sans-serif;
@@ -65,14 +65,20 @@ p {
   }
 }
 header.header {
+  @include responsive(m) {
+    flex-direction: column;
+  }
   background-color: var(--white);
-  height: 170px;
-  width: 100%;
+  height: 190px;
+  width: 101%;
   border-bottom: 5px solid var(--yellow);
   margin-top: 1px;
   border-radius: 1px;
 
   .navbar {
+    @include responsive(xs) {
+      flex-direction: column;
+    }
     width: 90%;
     margin-top: -30px;
     display: flex;
@@ -85,6 +91,12 @@ header.header {
     justify-content: start;
     align-items: center;
     img {
+      @include responsive(xs) {
+        width: 130px;
+        margin-left: 90%;
+        margin-top: 1px;
+      }
+      width: 280px;
       margin-left: -50px;
       margin-top: -40px;
     }
@@ -92,6 +104,8 @@ header.header {
 }
 
 .icons-header {
+  @include responsive(xs) {
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,6 +116,13 @@ header.header {
 }
 
 .categories {
+  @include responsive(xs) {
+    flex-direction: column;
+
+    justify-content: start;
+    align-items: start;
+  }
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -110,11 +131,18 @@ header.header {
   margin: 0 auto;
 
   ul {
+    @include responsive(xs) {
+      margin-top: -25px;
+      border: none;
+    }
     border-right: 1px solid black;
     margin-top: 1px;
   }
 
   li {
+    @include responsive(s) {
+      margin: 9.5px;
+    }
     display: flex;
     justify-content: space-between;
 
@@ -122,19 +150,44 @@ header.header {
     align-items: center;
   }
   a {
+    @include responsive(s) {
+      font-size: 15px;
+    }
+    @include responsive(xs) {
+      font-size: 11px;
+    }
     font-size: 18px;
     font-weight: bold;
     color: var(--dark-gray_1);
     text-decoration: none;
   }
   a:hover {
+    @include responsive(xs) {
+    }
     border-bottom: 8px solid var(--yellow);
     padding-bottom: 10px;
   }
 }
 
-.Fale {
+.Fale-p {
+  @include responsive(xs) {
+    margin-top: -15px;
+  }
   a {
+    @include responsive(xs) {
+      color: var(--yellow);
+    }
+  }
+}
+.Fale {
+  @include responsive(s and xs) {
+    margin: 0;
+    padding-bottom: 1px;
+  }
+  a {
+    @include responsive(xs) {
+      border: none;
+    }
     border-bottom: 8px solid var(--yellow);
     padding-bottom: 10px;
     margin-left: 10px;
@@ -144,15 +197,20 @@ header.header {
   @include responsive(s) {
     width: 250px;
   }
+  @include responsive(xs) {
+    display: none;
+  }
   margin-top: 30px;
+
   width: 424px;
 
   input {
-    @include responsive(s) {
+    @include responsive(s and m) {
       border-right: 1px solid #c1c1c1;
     }
     width: 100%;
     height: 48px;
+
     padding-top: 17px;
     border: 1px solid #c4c4c4;
     border-right: 0;
@@ -167,7 +225,10 @@ header.header {
   }
 }
 .emporiodacerveja {
-  @include responsive(s) {
+  @include responsive(s and xs) {
+    display: none;
+  }
+  @include responsive(m) {
     display: none;
   }
   margin-top: 30px;
@@ -178,8 +239,8 @@ header.header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -160px;
-  width: 55px;
+  margin-left: -150px;
+  width: 65px;
   height: 48px;
   z-index: 1;
 }
@@ -237,10 +298,17 @@ header.header {
     padding-bottom: 10px;
   }
 }
-
+a {
+  text-decoration: none;
+}
 button {
   cursor: pointer;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  list-style: none;
 
   background-color: var(--orange);
   color: var(--white);
@@ -264,6 +332,9 @@ button :focus {
 }
 
 .text-beer {
+  @include responsive(s) {
+    text-align: center;
+  }
   padding-left: 20px;
   padding-top: 40px;
   font-size: 30px;
