@@ -10,9 +10,15 @@
 
 1 - [Clone do Twitter](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/tree/main/twitter-clone)
 
-2 - :construction: <span style="color:red">[Em breve]() </span> :construction:
+3 - [Projeto Beer & Food](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/tree/main/projeto_food)
 
-3 - :construction: [Em breve]():construction:
+4 - [clone_instagram ](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/tree/main/clone_instagram)
+
+2 - [Curriculo_Ts](https://github.com/Rafael-Yokoyama/Curriculo_Ts)
+
+5 - [Emporio ](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/tree/main/emporio/emporio)
+
+6 - :construction: [Em breve]():construction:
 
 
 
