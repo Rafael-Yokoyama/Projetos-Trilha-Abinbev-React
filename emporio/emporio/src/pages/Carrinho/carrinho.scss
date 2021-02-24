@@ -70,6 +70,7 @@ $container-s: 540px;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top:-40px;
   button {
     align-items: center;
 
@@ -134,6 +135,7 @@ $container-s: 540px;
     }
     list-style: none;
     width: 40%;
+
     margin-top: 20px;
 
     margin: 0 auto;
@@ -148,6 +150,7 @@ $container-s: 540px;
     margin: 4px;
     flex-direction: column;
     width: 100%;
+    height:460px;
 
     background: var(--white);
     border-radius: 10px;
@@ -180,9 +183,12 @@ $container-s: 540px;
   @include responsive(xs) {
     margin-right: -200px;
   }
+  @include responsive(m) {
+    margin-right: -200px;
+  }
   cursor: pointer;
 
-  margin-right: -360px;
+  margin-right: -300px;
   width: 400px;
   display: flex;
 
@@ -202,9 +208,10 @@ $container-s: 540px;
 .finish {
   display: flex;
   flex-direction: row;
-  height: 2.5rem;
-  width: 190px;
-  font-size: 1.5rem;
+  margin-top:15px;
+ 
+  width: 170px;
+  font-size: 1.2rem;
   align-content: center;
   justify-content: center;
   align-items: center;
@@ -242,4 +249,14 @@ button.btn-finalizado {
     padding-bottom: 10px;
     margin-left: 10px;
   }
+}
+
+.btn-carrinho-voltar{
+  margin-top:10px;
+  margin-bottom:8px;
+  height:30px;
+}
+.btn-carrinho-voltar:hover{
+  background:black;
+  color:white;
 }

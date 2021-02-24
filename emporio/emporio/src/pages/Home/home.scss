@@ -202,7 +202,7 @@ header.header {
   }
   margin-top: 30px;
 
-  width: 424px;
+  width: 504px;
 
   input {
     @include responsive(s and m) {
@@ -239,7 +239,7 @@ header.header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -150px;
+  margin-left: -170px;
   width: 65px;
   height: 48px;
   z-index: 1;
@@ -317,7 +317,7 @@ button {
   font-family: Open Sans Condensed;
   margin-top: 50px;
   width: 100%;
-  height: 40px;
+  height: 30px;
   border: none;
   border-radius: 5px;
 }

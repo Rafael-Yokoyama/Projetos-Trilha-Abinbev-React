@@ -14,33 +14,32 @@ import {
 } from "../../store/ducks/cartItem/types";
 import "./carrinho.scss";
 import { Link } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from "react-hot-toast";
 
 const Carrinho = () => {
   const [categories, setCategories] = useState([]);
 
-  const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
 
   const headers = {
-    'Authorization': `Bearer ${token}`
-  }
+    Authorization: `Bearer ${token}`,
+  };
   const getHeader = async () => {
     try {
-      const request = await axios.get('http://localhost:4000/categories',{ headers: headers })
-      setCategories(request.data)
-
-    } catch(erro) {
-      if(erro.response.status === 404) {
-        toast.error('Error 404 recarregue a página')
-        }
+      const request = await axios.get("http://localhost:4000/categories", {
+        headers: headers,
+      });
+      setCategories(request.data);
+    } catch (erro) {
+      if (erro.response.status === 404) {
+        toast.error("Error 404 recarregue a página");
       }
-  }
+    }
+  };
 
   useEffect(() => {
-    getHeader()
-  }, [])
-  
-
+    getHeader();
+  }, []);
 
   const notification = useSelector(
     (state: CarteItemState) => state.cartItem.cartItens
@@ -88,10 +87,12 @@ const Carrinho = () => {
     const indexOfItemFound = newItemArray.findIndex(
       (element: EachCartItemType) => element.id === obj.id
     );
+
     newItemArray.splice(indexOfItemFound, 1);
     dispatch(setCartItem(newItemArray));
     calculator(obj);
     setReRender(!reRender);
+    toast.error("Um pedido foi deletado");
   };
 
   const calculator = (obj: EachCartItemType) => {
@@ -110,8 +111,8 @@ const Carrinho = () => {
   };
 
   const finish = () => {
-    toast.success('Seu pedido foi realizado')
- 
+    toast.success("Seu pedido foi realizado");
+
     dispatch(deleteCartItem());
   };
 
@@ -242,12 +243,10 @@ const Carrinho = () => {
 
       <div>
         {cartItens.length === 0 ? (
-          
           <Link to="/home">
-          {" "}
-          <button className="btn-finalizado">Voltar as compras</button>
-        </Link>
-       
+            {" "}
+            <button className="btn-finalizado">Voltar as compras</button>
+          </Link>
         ) : (
           <h1></h1>
         )}
@@ -256,9 +255,9 @@ const Carrinho = () => {
           {cartItens.map((i: EachCartItemType) => (
             <ul className=" container_beers" key={i.id}>
               <li className="li">
+                <p className="price"> R$ {i.price}</p>
                 <FaTrashAlt className="lixo" onClick={() => deleteItem(i)} />
 
-                <p className="price"> R$ {i.price}</p>
                 <img
                   className="img"
                   src={i.image}
@@ -281,12 +280,13 @@ const Carrinho = () => {
                 <button className="finish" onClick={() => finish()}>
                   Comprar{" "}
                 </button>
-
-                <Link to="/home">
-                  {" "}
-                  <button>Voltar as compras</button>
-                </Link>
               </li>
+              <Link to="/home">
+                {" "}
+                <button className="btn-carrinho-voltar">
+                  Voltar as compras
+                </button>
+              </Link>
             </ul>
           ))}
         </section>
