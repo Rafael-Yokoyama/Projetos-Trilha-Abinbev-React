@@ -14,15 +14,17 @@ Projeto desenvolvido na Trilha-Abinbev-React  do Campinas Tech Talents  utilizan
   
         $ git clone https://github.com/jenicarvalho/fake-api-emporio.git
         $ cd fake-api-emporio
+        
+  > Iniciar servidor fake
+        
+        $ json-server db.json -m ./node_modules/json-server-auth -r routes.json --port 4000
       
   > Clonar o repositório
    
         $ git clone https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React.git
         $ cd emporio
         
- > iniciar servidor fake
-        
-        $ json-server db.json -m ./node_modules/json-server-auth -r routes.json --port 4000
+
 
 #### Para rodar 
   > Instalar dependências
