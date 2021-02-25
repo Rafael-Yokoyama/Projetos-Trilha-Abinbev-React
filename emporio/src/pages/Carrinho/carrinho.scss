@@ -252,6 +252,8 @@ button.btn-finalizado {
 }
 
 .btn-carrinho-voltar{
+  @include responsive(xs) { width:90%}
+  width:40%;
   margin-top:10px;
   margin-bottom:8px;
   height:30px;

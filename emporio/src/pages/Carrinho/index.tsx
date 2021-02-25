@@ -214,7 +214,7 @@ const Carrinho = () => {
 
           <div className="icons-header">
             <FaUser className="icons" />
-            <FaShoppingCart className="icons" />{" "}
+            <FaShoppingCart className="icons" />
             <span className="cart-count"> {notificationSum} </span>
           </div>
         </nav>
@@ -243,13 +243,11 @@ const Carrinho = () => {
 
       <div>
         {cartItens.length === 0 ? (
-          <Link to="/home">
-            {" "}
-            <button className="btn-finalizado">Voltar as compras</button>
-          </Link>
+          ''
+
         ) : (
-          <h1></h1>
-        )}
+            <h1> ''</h1>
+          )}
 
         <section className="Beers-container">
           {cartItens.map((i: EachCartItemType) => (
@@ -278,17 +276,20 @@ const Carrinho = () => {
                   <button onClick={() => decreaseMount(i)}>-</button>
                 </div>
                 <button className="finish" onClick={() => finish()}>
-                  Comprar{" "}
+                  Comprar
                 </button>
               </li>
-              <Link to="/home">
-                {" "}
-                <button className="btn-carrinho-voltar">
-                  Voltar as compras
-                </button>
-              </Link>
+
             </ul>
+
           ))}
+
+          <div>  <Link to="/home">
+            {" "}
+            <button className="btn-carrinho-voltar">
+              Voltar as compras
+                </button>
+          </Link></div>
         </section>
         <Toaster />
       </div>

@@ -62,18 +62,14 @@ const Home = () => {
     getBeers();
   }, []);
 
-  /* 
+  const notification = useSelector(
+    (state: CarteItemState) => state.cartItem.cartItens
+  );
+  let notificationSum = 0;
 
-  useEffect(() => {
-    if (token !== null) {
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      axios
-        .get("http://localhost:4000/beers", { headers: headers })
-        .then((resposta) => setBeers(resposta.data));
-    }
-  }, []); */
+  notification.map((i: EachCartItemType) => {
+    notificationSum = notificationSum + i.amount;
+  });
 
   const cartItens = useSelector(
     (state: CarteItemState) => state.cartItem.cartItens
@@ -213,6 +209,8 @@ const Home = () => {
             <FaUser className="icons" />
 
             <FaShoppingCart className="icons" />
+
+            <span className="cart-count"> {notificationSum} </span>
           </div>
         </nav>
 
