@@ -3,7 +3,7 @@
 Projeto desenvolvido na Trilha-Abinbev-React  do Campinas Tech Talents  utilizando Typescript, simulando um e-commerce de cervejas. 
 ## 👉🏽🖥 Antevisão 
 
-![](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/emporio/emporio/src/img/gif_2.gif)
+![](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/blob/main/emporio/src/img/gif_2.gif)
 
 ## 🧐 Como usar
 
