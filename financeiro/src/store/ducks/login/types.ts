@@ -12,15 +12,8 @@ export interface Cadastrar {
   password: string | undefined;
 }
 
-export interface CadastrarPayload {
-  payload: Cadastrar;
-}
 
 export interface login {
   email: string | undefined;
   password: string | undefined;
-}
-
-export interface AccessToken {
-  accessToken: string;
 }

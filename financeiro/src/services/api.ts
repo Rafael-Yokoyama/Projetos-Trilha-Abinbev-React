@@ -2,9 +2,13 @@ import axios from "axios"
 
 
 
-const api = axios.create({
+export const api = axios.create({
   
   baseURL: `http://localhost:4000` 
 })
 
-export default api
+
+
+export const apiExternal = axios.create({
+  baseURL:` https://cors-anywhere.herokuapp.com/https://v2.api.forex/infos`
+})

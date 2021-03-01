@@ -1,6 +1,6 @@
+import { api } from "./api"
 
 
-import api from "./api";
 
 const CadastrarService = {
   PostSignNow: (signNow: any) => api.post(`/register `,{
