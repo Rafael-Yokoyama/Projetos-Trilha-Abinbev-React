@@ -16,7 +16,7 @@
 
 4 - [clone_instagram ](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/tree/main/clone_instagram)
 
-5 - [Emporio ](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/tree/main/emporio/emporio)
+5 - [Emporio ](https://github.com/Rafael-Yokoyama/Projetos-Trilha-Abinbev-React/tree/main/emporio)
 
 6 - :construction: [Em breve]():construction:
 
