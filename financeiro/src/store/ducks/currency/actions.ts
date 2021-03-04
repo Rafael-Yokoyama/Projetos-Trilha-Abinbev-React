@@ -1,20 +1,10 @@
 import { action } from "typesafe-actions";
-import { CurrencyTypes, SelectedCurrency } from "./types";
+import { CurrencyTypes } from './types';
 
-export const loadAllCurrenciesRequest = () =>
-  action(CurrencyTypes.GET_ALL_CURRENCIES_REQUEST);
+export const loadCurrencyRequest = (currency: any) => action(CurrencyTypes.GET_CURRENCY_REQUEST, currency);
+export const loadCurrencySuccess = (data: any) => action(CurrencyTypes.GET_CURRENCY_SUCCESS, data);
+export const loadCurrencyFailure = () => action(CurrencyTypes.GET_CURRENCY_FAILURE);
 
-export const loadAllCurrenciesSuccess = (response: any) =>
-  action(CurrencyTypes.GET_ALL_CURRENCIES_SUCCESS, response);
-
-export const loadAllCurrenciesFailure = () =>
-  action(CurrencyTypes.GET_ALL_CURRENCIES_FAILURE);
-
-export const loadCurrencyRequest = (payload: string) =>
-  action(CurrencyTypes.GET_CURRENCY_REQUEST, payload);
-
-export const loadCurrencySuccess = (payload: SelectedCurrency) =>
-  action(CurrencyTypes.GET_CURRENCY_SUCCESS, payload);
-
-export const loadCurrencyFailure = () =>
-  action(CurrencyTypes.GET_CURRENCY_FAILURE);
+export const loadCurrenciesListRequest = () => action(CurrencyTypes.GET_CURRENCIESLIST_REQUEST);
+export const loadCurrenciesListSuccess = (data: any) => action(CurrencyTypes.GET_CURRENCIESLIST_SUCCESS, data);
+export const loadCurrenciesListFailure = () => action(CurrencyTypes.GET_CURRENCIESLIST_FAILURE);

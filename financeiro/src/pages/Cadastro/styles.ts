@@ -12,7 +12,6 @@ export const Button = styled.button`
   margin: 1rem 0;
   box-shadow: 0px 14px 9px -15px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  border: 1.2px solid #70edb9;
   background-color: transparent;
   color: #fff;
   font-weight: 600;
@@ -96,7 +95,7 @@ export const Sidbar = styled.form`
     border-radius: 8px;
   }
   span.span {
-    color: #5dc399;
+
     font-weight: 300;
     font-size: 18px;
   }
@@ -112,7 +111,7 @@ export const Sidbar = styled.form`
     font-size: 13px;
     margin-top: 2rem;
     span {
-      color: #ff8d8d;
+      color: white;
       cursor: pointer;
     }
   }

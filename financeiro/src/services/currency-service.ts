@@ -1,8 +1,16 @@
-import { apiExternal } from "./api";
+import axios from "axios";
+
+const currencyApi = axios.create({
+  baseURL: 'https://v2.api.forex/infos/currency'
+})
+
+const currencyListApi = axios.create({
+  baseURL: 'https://v2.api.forex/infos'
+})
 
 const CurrencyService = {
-  getCurrencies: () => apiExternal.get("/currencies.json"),
-  getCurrency: (currency: any) => apiExternal.get(`/currency/${currency}.json?lang=pt`)
+  listCurrencies: () => currencyListApi.get('/currencies.json'),
+  getCurrency: (currency: any) => currencyApi.get(`/${currency}.json?lang=pt`)
 }
 
-export default CurrencyService
+export default CurrencyService;

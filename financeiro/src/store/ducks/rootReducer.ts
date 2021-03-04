@@ -1,10 +1,12 @@
 import { combineReducers } from "redux"
 import reducerCadastrar from "./login"
-import reducerCurrencies from "./currency"
+import currency from './currency';
+import finance from './finances';
 
 const createRootReducer = () => combineReducers({
   cadastrar: reducerCadastrar,
-  currency: reducerCurrencies
+  currency,
+  finance 
 })
 
 export default createRootReducer

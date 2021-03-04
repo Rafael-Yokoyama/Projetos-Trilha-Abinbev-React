@@ -1,30 +1,40 @@
-import { CurrencyTypes } from "./types";
 
-const initialState: any = {
-  loading: false,
-  error: false,
-  success: false,
-  allCurrencies: {},
-  selectedCurrency: {}
-};
+import { Reducer } from "redux";
+import { CurrencyTypes, CurrencyState } from './types';
 
-function reducerCurrencies(state = initialState, action: any) {
+const INITIAL_STATE: CurrencyState = {
+  data: {},
+  currencyDetails: [],
+  loadingCurrency: false,
+  currenciesList: {},
+}
+
+const reducer: Reducer<CurrencyState> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CurrencyTypes.GET_ALL_CURRENCIES_REQUEST:
-      return { ...state, loading: true };
-    case CurrencyTypes.GET_ALL_CURRENCIES_SUCCESS:
-      return { ...state, loading: false, success: true, allCurrencies: action.payload };
-    case CurrencyTypes.GET_ALL_CURRENCIES_FAILURE:
-      return { ...state, error: true, success: false };
     case CurrencyTypes.GET_CURRENCY_REQUEST:
-      return { ...state, loading: true };
+      return { ...state, loadingCurrency: true }
     case CurrencyTypes.GET_CURRENCY_SUCCESS:
-      return { ...state, success: true, loading: false, selectedCurrency: action.payload };
+      return {
+        ...state,
+        loadingCurrency: false,
+        data: action.payload
+      }
     case CurrencyTypes.GET_CURRENCY_FAILURE:
-      return { ...state };
+      return { ...state, loadingCurrency: false }
+
+    case CurrencyTypes.GET_CURRENCIESLIST_REQUEST:
+      return { ...state, loadingCurrency: true }
+    case CurrencyTypes.GET_CURRENCIESLIST_SUCCESS:
+      return {
+        ...state,
+        loadingCurrency: false,
+        currenciesList: action.payload.data
+      }
+    case CurrencyTypes.GET_CURRENCIESLIST_FAILURE:
+      return { ...state, loadingCurrency: true }
     default:
-      return state;
+      return state
   }
 }
 
-export default reducerCurrencies;
+export default reducer

@@ -60,13 +60,20 @@ const Login  = () => {
       <Container>
       
         <Sidbar>
+        <img
+          src="https://media.giphy.com/media/kbo6cgaxHyA8zvpRic/giphy.gif"
+          width="60px"
+          title="gif"
+        />
+
+
+
           <h3>
             Fi <span className="span">nances</span>
           </h3>
 
           <Form>
-            <h3>Sign Up</h3>
-
+      
            
           </Form>
           <div>
@@ -74,7 +81,7 @@ const Login  = () => {
     
             </Terms>
             <h4>
-            Not have an account yet?  <Link to="/"><span>Sign Up</span></Link>
+            Você ainda não tem uma conta?  <Link to="/"><span> inscrever-se</span></Link>
             </h4>
           </div>
 
@@ -93,7 +100,7 @@ const Login  = () => {
         </Sidbar>
      
       </Container>
-      {permission && <Redirect to="/home" />}
+      {permission && <Redirect to="/dashboard" />}
     </>
   );
 };

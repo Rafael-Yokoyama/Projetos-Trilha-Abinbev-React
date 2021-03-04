@@ -1,21 +1,27 @@
 import React from "react";
 
-import { BrowserRouter } from "react-router-dom";
 import Routes from "./routes";
 
 import { Provider } from "react-redux";
 import store from "./store";
-import Home from "./pages/Home";
+import { ThemeProvider } from '@material-ui/core';
+import GlobalStyles from './components/GlobalStyles';
+import theme from "./theme";
+
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+    
+      <ThemeProvider theme={theme}>
+    
+      <GlobalStyles />
         <Provider store={store}>
           <Routes />
        
         </Provider>
-      </BrowserRouter>
+        </ThemeProvider>
+     
     </div>
   );
 }

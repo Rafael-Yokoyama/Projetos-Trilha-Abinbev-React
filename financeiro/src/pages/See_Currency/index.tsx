@@ -1,49 +1,159 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as CurrencyActions from '../../store/ducks/currency/actions';
+import NavBar from '../../components/NavBar';
 import {
-  loadAllCurrenciesRequest,
-  loadCurrencyRequest,
-} from "../../store/ducks/currency/actions";
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  Grid,
+  makeStyles,
+  Container,
+  InputLabel,
+  Select,
+  FormControl,
+  MenuItem
+} from '@material-ui/core';
+import { toast, Toaster } from 'react-hot-toast';
+import CurrencyDetails from '../../components/CurrencyDetails';
 
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { Container } from "./styles";
+const useStyles = makeStyles((theme: any) => ({
+  root: {
+    backgroundColor: theme.palette.background.dark,
+    height: '100%',
+    paddingBottom: theme.spacing(12),
+    paddingTop: theme.spacing(2),
+    color:'white',
+  },
+  card: {
+       marginLeft: theme.spacing(27),
+   
+    width: 800
 
-const Currency = () => {
+  
+  },
+  item: {
+    color:'white',
+    display: 'flex',
+    flexDirection: 'column',
+    height:'120px'
+  },
+  formControl: {
+    color:'white',
+    margin: theme.spacing(1),
+    minWidth: 200,
+  },
+}));
+
+function Currency() {
+  const classes = useStyles();
+
+  const [selectedCurrency, setSelectedCurrency] = useState('');
+  const [showCurrencyDetails, setShowCurrencyDetails] = useState(false);
+
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSelectedCurrency((event.target as HTMLInputElement).value);
+  };
+
   const dispatch = useDispatch();
 
-  const [token] = useState<string | null>(localStorage.getItem("token"));
-
-  const { allCurrencies, loading} = useSelector(
-    (state: any) => state.currency
-  );
-
   useEffect(() => {
-    dispatch(loadAllCurrenciesRequest());
-  }, []);
+    dispatch(CurrencyActions.loadCurrenciesListRequest())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const responseCurrency = useSelector((state: any) => state.currency.currenciesList);
+
+  const currencyArray = Object.values(responseCurrency);
+
+  const getSelectedCurrencyData = (param: any) => {
+    setSelectedCurrency(param);
+    if (selectedCurrency !== '') {
+      try {
+        dispatch(CurrencyActions.loadCurrencyRequest(selectedCurrency));
+        setShowCurrencyDetails(true);
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      toast.error('Selecione uma moeda')
+      return
+    }
+  }
 
   return (
     <>
-      <Container>
-        {!token && <Redirect to="/cadastro" />}
-        <h1>Currencies</h1>
-        <h3> SEE DETAILS </h3>
-        {loading && <CircularProgress />}
+      <Toaster />
+      <NavBar />
+      <div className={classes.root}>
+        <Container maxWidth="lg">
+          <Card className={classes.card}>
+            <CardHeader
+          
+              subheader="Selecione a moeda de sua preferência"
+              title="MOEDAS"
+            />
+            <Divider />
+            <CardContent>
+              <Grid
+                container
+                spacing={6}
+                wrap="wrap"
+              >
+                <Grid
+                  className={classes.item}
+                  item
+                  md={4}
+                  sm={6}
+                  xs={12}
+                >
+                 
+        
+                 
 
-        <div className="div">
-          {allCurrencies !== {} &&
-            Object.keys(allCurrencies).map((item: string) => (
-              <ul key={allCurrencies[item]?.currency_code}>
-                <li>Name: {allCurrencies[item]?.name}</li>
-                <li>Symbol: {allCurrencies[item]?.symbol}</li>
-                <li>Country Code: {allCurrencies[item]?.country_code}</li>
-                <li>Country: {allCurrencies[item]?.country_name}</li>
-              </ul>
-            ))}
-        </div>
-      </Container>
+                 <FormControl variant="outlined" className={classes.formControl}>
+                    <InputLabel id="demo-simple-select-outlined-label">Moedas</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
+                      value={selectedCurrency}
+                      onChange={handleChange}
+                      label="Moedas"
+                    >
+                      {currencyArray !== null && currencyArray.map((currency: any) => (
+                        <MenuItem value={currency.currency_code}>{currency.name}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+
+                </Grid>
+              </Grid>
+            </CardContent>
+            <Divider />
+            <Box
+              display="flex"
+              justifyContent="flex-end"
+              p={2}
+            >
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={getSelectedCurrencyData}
+              >
+                Selecionar
+          </Button>
+            </Box>
+          </Card>
+
+          {showCurrencyDetails ? <CurrencyDetails /> : null}
+        </Container>
+
+      </div>
     </>
-  );
-};
+  )
+}
 
 export default Currency;
